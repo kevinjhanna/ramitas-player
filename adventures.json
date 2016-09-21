@@ -1,0 +1,6 @@
+{
+  "adventures": [
+    { "title": "Juntar ramitas", "url": "http://localhost:8000/ramitas.json"},
+    { "title": "Otra historia", "url": "http://localhost:8000/ramitas.json"}
+  ]
+}

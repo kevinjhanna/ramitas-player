@@ -1,0 +1,20 @@
+{
+  "title": "Juntar ramitas secas",
+  "text": "Una aventura de juntar ramitas secas",
+  "startingEvent": "1",
+  "events": {
+    "1": {
+      "title": "Arrancando",
+      "text": "Hagamos un asado - dijeron",
+      "actions": [
+        { "text": "Yo junto las ramitas secas", "outcome": ["1"] }
+      ]
+    },
+    "2": {
+      "title": "Buscando ramitas",
+      "text": "No hay",
+      "actions": [
+      ]
+    }
+  }
+}
