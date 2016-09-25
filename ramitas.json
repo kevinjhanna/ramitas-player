@@ -7,12 +7,30 @@
       "title": "Arrancando",
       "description": "Hagamos un asado - dijeron",
       "actions": [
-        { "description": "Yo junto las ramitas secas", "outputs": ["2"] },
-        { "description": "No quiero hacer nada", "outputs": ["2"] }
+        { "description": "Yo junto las ramitas secas", "outputs": ["2", "3", "4"] },
+        { "description": "No quiero hacer nada", "outputs": ["5"] }
       ]
     },
     "2": {
-      "title": "Buscando ramitas",
+      "title": "Buscando ramitas => no hay",
+      "description": "No hay",
+      "actions": [
+      ]
+    },
+    "3": {
+      "title": "Buscás => te caés al pozo",
+      "description": "No hay",
+      "actions": [
+      ]
+    },
+    "4": {
+      "title": "Buscás => te comen los bichos",
+      "description": "No hay",
+      "actions": [
+      ]
+    },
+    "5": {
+      "title": "te hechan del grupo",
       "description": "No hay",
       "actions": [
       ]
