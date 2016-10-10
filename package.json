@@ -1,0 +1,24 @@
+{
+  "name": "ramitas",
+  "version": "0.1.0",
+  "description": "```elm-live App.elm --output=dist/app.js --open```",
+  "main": "dist/app.js",
+  "dependencies": {},
+  "devDependencies": {
+    "elm": "^0.17.1",
+    "elm-live": "^2.5.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinjhanna/ramitas-player.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevinjhanna/ramitas-player/issues"
+  },
+  "homepage": "https://github.com/kevinjhanna/ramitas-player#readme"
+}
