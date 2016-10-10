@@ -30,7 +30,7 @@ type alias Action =
 
 type alias Event =
   { title: String
-  -- , description: String
+  , description: String
   , actions: List Action
   }
 
@@ -38,6 +38,7 @@ emptyEvent : Event
 emptyEvent =
   { title = "Empty event"
   , actions = []
+  , description = ""
   }
 
 emptyAdventure : Adventure
@@ -135,12 +136,23 @@ update msg model =
 -- VIEW
 view : Model -> Html Msg
 view model =
-  case model.route of
-    ListingAdventures -> viewAdventureLinks model.adventureLinks
-    PlayingAdventure -> viewAdventure model.selectedAdventure model.currentEvent
+  div []
+  [ viewNavbar
+  , div
+    [ class "grid" ]
+    [ case model.route of
+        ListingAdventures -> viewAdventureLinks model.adventureLinks
+        PlayingAdventure -> viewAdventure model.selectedAdventure model.currentEvent
+    ]
+  ]
+
+viewNavbar : Html Msg
+viewNavbar = div [ class "navbar" ]
+  [ a [ class "navbar-logo" ] [ text "Ramitas" ]
+  ]
 
 viewAdventureLink : AdventureLink -> Html Msg
-viewAdventureLink adventureLink = div
+viewAdventureLink adventureLink = a
   [ onClick (SelectAdventure adventureLink)
   ]
   [ text adventureLink.title
@@ -148,8 +160,15 @@ viewAdventureLink adventureLink = div
 
 viewAdventureLinks : List AdventureLink -> Html Msg
 viewAdventureLinks adventureLinks =
-  div []
-    (List.map viewAdventureLink adventureLinks)
+  let
+    row = (\element -> tr [] [ td [] [ element ]])
+  in
+    div [ ]
+    [ h1 [] [ text "Aventuras" ]
+    , table []
+      [ tbody [] (List.map (\link -> row (viewAdventureLink link)) adventureLinks)
+      ]
+    ]
 
 viewAdventure : Maybe Adventure -> Maybe Event -> Html Msg
 viewAdventure maybeAdventure maybeCurrentEvent =
@@ -161,21 +180,24 @@ viewAdventure maybeAdventure maybeCurrentEvent =
       ]
 
 viewAction : Action -> Html Msg
-viewAction action = div
-  [ onClick (RollAction action)
-  ]
-  [ text action.description
+viewAction action = div []
+  [ a
+    [ onClick (RollAction action)
+    , class "btn btn-outline"
+    ]
+    [ text action.description
+    ]
   ]
 
 viewEvent : Maybe Event -> Html Msg
 viewEvent maybe =
   case maybe of
     Just event -> div []
-      [ text event.title
+      [ strong [] [ text event.title ]
+      , p [] [ text event.description ]
       , div [] (List.map viewAction event.actions)
       ]
     Nothing -> text "Dead end."
-
 
 -- SUBSCRIPTIONS
 subscriptions : Model -> Sub Msg
@@ -204,8 +226,9 @@ decodeAction = Json.object2 Action
   (Json.at ["outputs"] (Json.list Json.string))
 
 decodeEvent : Json.Decoder Event
-decodeEvent = Json.object2 Event
+decodeEvent = Json.object3 Event
   (Json.at ["title"] Json.string)
+  (Json.at ["description"] Json.string)
   (Json.at ["actions"] (Json.list decodeAction))
 
 loadAdventure : String -> String -> (Dict.Dict String Event) -> Adventure
