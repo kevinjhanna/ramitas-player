@@ -139,7 +139,7 @@ view model =
   div []
   [ viewNavbar
   , div
-    [ class "grid" ]
+    [  ]
     [ case model.route of
         ListingAdventures -> viewAdventureLinks model.adventureLinks
         PlayingAdventure -> viewAdventure model.selectedAdventure model.currentEvent
@@ -163,10 +163,28 @@ viewAdventureLinks adventureLinks =
   let
     row = (\element -> tr [] [ td [] [ element ]])
   in
-    div [ ]
-    [ h1 [] [ text "Aventuras" ]
-    , table []
-      [ tbody [] (List.map (\link -> row (viewAdventureLink link)) adventureLinks)
+    div
+    [
+    ]
+    [ div
+      [ class "splash-image"
+      ]
+      [ h1
+        [
+        ]
+        [ div
+          [ class "grid"
+          ]
+          [ text "Aventuras"
+          ]
+        ]
+      ]
+    , div
+      [ class "grid"
+      ]
+      [ table []
+        [ tbody [] (List.map (\link -> row (viewAdventureLink link)) adventureLinks)
+        ]
       ]
     ]
 
@@ -174,7 +192,9 @@ viewAdventure : Maybe Adventure -> Maybe Event -> Html Msg
 viewAdventure maybeAdventure maybeCurrentEvent =
   case maybeAdventure of
     Nothing -> div [] []
-    Just adventure -> div []
+    Just adventure -> div
+      [ class "grid"
+      ]
       [ h1 [] [text adventure.title]
       , viewEvent maybeCurrentEvent
       ]

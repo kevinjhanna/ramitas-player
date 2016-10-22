@@ -1,11 +1,14 @@
-@import 'https://fonts.googleapis.com/css?family=Architects+Daughter';
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
 .navbar  {
   display: block;
   width: 100%;
   min-height: 32px;
   line-height: 50px;
-  background-color: #01579B;
+  /*background-color: #01579B;*/
+  background-color: #3d1d08;
+  text-align: center;
+
   color: #ffffff;
 }
 
@@ -14,7 +17,9 @@
   text-decoration: none;
   opacity: 0.8;
   font-size: 25px;
-  font-family: 'Architects Daughter';
+  /*font-family: 'Architects Daughter';*/
+  font-family: 'Lato', sans-serif;
+
   margin-left: 20px;
 }
 .navbar-logo:hover {
@@ -34,4 +39,11 @@
   opacity: 1.0;
   color: #ffffff;
   text-decoration: none;
+}
+
+.splash-image {
+  background: url(/assets/mountains.jpeg);
+  background-size: cover;
+  background-position: center;
+  height: 300px;
 }
