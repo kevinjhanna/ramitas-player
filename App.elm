@@ -85,6 +85,7 @@ type Msg
   | FetchFail Http.Error
   | RollAction Action
   | SetEvent (Array.Array String) Int
+  | ListAdventureLinks
 
 
 update : Msg -> Model -> (Model, Cmd Msg)
@@ -118,7 +119,7 @@ update msg model =
         Just adventure ->
           let
             maybeEventId = Array.get randomIndex eventIds
-            eventId = Maybe.withDefault "4" maybeEventId
+            eventId = Maybe.withDefault "1" maybeEventId
             maybeEvent = Dict.get eventId adventure.events
             newModel = { model | currentEvent = maybeEvent }
           in
@@ -132,6 +133,13 @@ update msg model =
         cmd = Random.generate (SetEvent array) randomIndex
       in
         (model, cmd)
+
+    ListAdventureLinks ->
+      let
+        newModel = { model | route = ListingAdventures}
+      in
+        (newModel, Cmd.none)
+
 
 -- VIEW
 view : Model -> Html Msg
@@ -147,8 +155,15 @@ view model =
   ]
 
 viewNavbar : Html Msg
-viewNavbar = div [ class "navbar" ]
-  [ a [ class "navbar-logo" ] [ text "Ramitas" ]
+viewNavbar = div
+  [ class "navbar"
+  ]
+  [ a
+    [ class "navbar-logo"
+    , onClick ListAdventureLinks
+    ]
+    [ text "Ramitas"
+    ]
   ]
 
 viewAdventureLink : AdventureLink -> Html Msg
@@ -169,11 +184,11 @@ viewAdventureLinks adventureLinks =
     [ div
       [ class "splash-image"
       ]
-      [ h1
-        [
+      [ div
+        [ class "grid"
         ]
-        [ div
-          [ class "grid"
+        [ h1
+          [ class "splash-title"
           ]
           [ text "Aventuras"
           ]
@@ -182,7 +197,9 @@ viewAdventureLinks adventureLinks =
     , div
       [ class "grid"
       ]
-      [ table []
+      [ table
+        [ class "table table-striped"
+        ]
         [ tbody [] (List.map (\link -> row (viewAdventureLink link)) adventureLinks)
         ]
       ]
@@ -193,9 +210,13 @@ viewAdventure maybeAdventure maybeCurrentEvent =
   case maybeAdventure of
     Nothing -> div [] []
     Just adventure -> div
-      [ class "grid"
+      [ class "grid adventure"
       ]
-      [ h1 [] [text adventure.title]
+      [ h1
+        [
+        ]
+        [ text adventure.title
+        ]
       , viewEvent maybeCurrentEvent
       ]
 

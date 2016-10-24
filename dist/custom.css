@@ -5,8 +5,7 @@
   width: 100%;
   min-height: 32px;
   line-height: 50px;
-  /*background-color: #01579B;*/
-  background-color: #3d1d08;
+  background-color: #202123;
   text-align: center;
 
   color: #ffffff;
@@ -17,7 +16,6 @@
   text-decoration: none;
   opacity: 0.8;
   font-size: 25px;
-  /*font-family: 'Architects Daughter';*/
   font-family: 'Lato', sans-serif;
 
   margin-left: 20px;
@@ -46,4 +44,14 @@
   background-size: cover;
   background-position: center;
   height: 300px;
+  margin-bottom: 20px;
+}
+
+.splash-title {
+  padding-top:225px;
+}
+
+.adventure {
+  margin-top: 20px;
+
 }
