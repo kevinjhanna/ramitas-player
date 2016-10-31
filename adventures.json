@@ -1,6 +1,29 @@
 {
   "adventures": [
-    { "title": "Juntar ramitas", "url": "http://localhost:8000/ramitas.json"},
-    { "title": "Otra historia", "url": "http://localhost:8000/ramitas.json"}
+    {
+      "title": "Juntar ramitas secas",
+      "description": "Juntá las ramitas necesarias ¿Podrás hacer el asado?",
+      "url": "http://localhost:8000/ramitas.json"
+    },
+    {
+      "title": "Ejemplo",
+      "description": "Una simple avnetura de ejemplo",
+      "url": "http://localhost:8000/basic.json"
+    },
+    {
+      "title": "Belgrano",
+      "description": "Tus primeros días de vuelta en Buenos Aires como Manuel Belgrano.",
+      "url": "http://localhost:8000/ramitas.json"
+    },
+    {
+      "title": "El Anillo Único",
+      "description": "Encontrás un anillo que te hace desaparecer cuando te lo ponés. Es de noche y golpean la puerta de tu casa...",
+      "url": "http://localhost:8000/ramitas.json"
+    },
+    {
+      "title": "Día de examen",
+      "description": "Hoy rendís el último examen de tu carrera, pero cuando te despertás te olvidaste todo lo que estudiaste...",
+      "url": "http://localhost:8000/ramitas.json"
+    }
   ]
 }

@@ -12,14 +12,14 @@ import Array
 type Route = ListingAdventures | PlayingAdventure
 
 type alias AdventureLink =
-  { title : String
+  { title: String
+  , description: String
   , url: String
   }
 
 type alias Adventure =
   { title : String
   , events: Dict.Dict String Event
-  -- , currentEvent: Maybe Event
   , startingEvent: Maybe Event
   }
 
@@ -167,10 +167,20 @@ viewNavbar = div
   ]
 
 viewAdventureLink : AdventureLink -> Html Msg
-viewAdventureLink adventureLink = a
-  [ onClick (SelectAdventure adventureLink)
+viewAdventureLink adventureLink =
+  div
+  [ class "adventure-link"
   ]
-  [ text adventureLink.title
+  [ a
+    [ onClick (SelectAdventure adventureLink)
+    ]
+    [ text adventureLink.title
+    ]
+  , div
+    [ class "adventure-link-description"
+    ]
+    [ text adventureLink.description
+    ]
   ]
 
 viewAdventureLinks : List AdventureLink -> Html Msg
@@ -213,7 +223,7 @@ viewAdventure maybeAdventure maybeCurrentEvent =
       [ class "grid adventure"
       ]
       [ h1
-        [
+        [ class "adventure-title"
         ]
         [ text adventure.title
         ]
@@ -224,7 +234,7 @@ viewAction : Action -> Html Msg
 viewAction action = div []
   [ a
     [ onClick (RollAction action)
-    , class "btn btn-outline"
+    , class "btn btn-outline btn-block"
     ]
     [ text action.description
     ]
@@ -234,8 +244,16 @@ viewEvent : Maybe Event -> Html Msg
 viewEvent maybe =
   case maybe of
     Just event -> div []
-      [ strong [] [ text event.title ]
-      , p [] [ text event.description ]
+      [ h4
+        [ class "adventure-event-title"
+        ]
+        [ text event.title
+        ]
+      , p
+        [ class "adventure-event-description"
+        ]
+        [ text event.description
+        ]
       , div [] (List.map viewAction event.actions)
       ]
     Nothing -> text "Dead end."
@@ -288,7 +306,10 @@ decodeAdventure =
 
 decodeAdventureLink : Json.Decoder AdventureLink
 decodeAdventureLink =
-  Json.object2 AdventureLink (Json.at ["title"] Json.string) (Json.at ["url"] Json.string)
+  Json.object3 AdventureLink
+    (Json.at ["title"] Json.string)
+    (Json.at ["description"] Json.string)
+    (Json.at ["url"] Json.string)
 
 decodeAdventureLinks : Json.Decoder (List AdventureLink)
 decodeAdventureLinks =

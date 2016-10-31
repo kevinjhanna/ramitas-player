@@ -4,35 +4,60 @@
   "startingEventId": "1",
   "events": {
     "1": {
-      "title": "Arrancando",
-      "description": "Hagamos un asado - dijeron",
+      "title": "Es de día",
+      "description": "\"Hagamos un asado\" - dicen tus amigos.",
       "actions": [
         { "description": "Yo junto las ramitas secas", "outputs": ["2", "3", "4"] },
-        { "description": "No quiero hacer nada", "outputs": ["5"] }
+        { "description": "No quiero ayudar", "outputs": ["5"] }
       ]
     },
     "2": {
-      "title": "Buscando ramitas => no hay",
-      "description": "No hay",
+      "title": "Buscás ramitas en el bosque",
+      "description": "No encontrás ramitas secas, solo húmedas, porque estuvo lloviendo.",
       "actions": [
+        { "description": "Llevar las ramitas húmedas", "outputs": ["5"] },
+        { "description": "Seguir buscando", "outputs": ["6", "4"] }
       ]
     },
     "3": {
-      "title": "Buscás => te caés al pozo",
-      "description": "No hay",
+      "title": "Mientras buscás te caés en un pozo",
+      "description": "Una larga, larga caída hasta el fondo.",
       "actions": [
+        { "description": "Trepar", "outputs": ["7"] },
+        { "description": "Esperar que venga alguien", "outputs": ["8"] }
       ]
     },
     "4": {
-      "title": "Buscás => te comen los bichos",
-      "description": "No hay",
+      "title": "Buscás ramitas pero..",
+      "description": "¡Te comen los bichos bolita!",
       "actions": [
       ]
     },
     "5": {
-      "title": "te hechan del grupo",
-      "description": "No hay",
+      "title": "Que mal...",
+      "description": "Tus amigos te dan la espalda y no te vuelven a hablar.",
       "actions": [
+      ]
+    },
+    "6": {
+      "title": "¡Encontrás las ramitas secas!",
+      "description": "Hacen un fuego increíble y hacen el mejor asado de todos los tiempos.",
+      "actions": [
+      ]
+    },
+    "7": {
+      "title": "¡Salís del pozo!",
+      "description": "Estás muy cansado",
+      "actions": [
+        { "description": "Volver con las manos vacias", "outputs": ["5"] },
+        { "description": "Seguir buscando", "outputs": ["6", "4"] }
+      ]
+    },
+    "8": {
+      "title": "No viene nadie",
+      "description": "Seguís en el pozo",
+      "actions": [
+        { "description": "Trepar", "outputs": ["7"] }
       ]
     }
   }

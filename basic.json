@@ -1,0 +1,25 @@
+{
+  "title": "Ejemplo de Aventura",
+  "description": "Para escritores",
+  "startingEventId": "start",
+  "events": {
+    "start": {
+      "title": "En el bosque oscuro...",
+      "description": "Hay un ruido extraño detrás tuyo...",
+      "actions": [
+        { "description": "Me doy vuelta con mi espada", "outputs": ["win"] },
+        { "description": "Sigo caminando tranquilo", "outputs": ["lose"] }
+      ]
+    },
+    "win": {
+      "title": "¡Era un hombre lobo!",
+      "description": "Por suerte con tu espada lo cortaste por la mitad. Se hace de día y encontrás el camino a tu casa. Ganaste.",
+      "actions": []
+    },
+    "lose": {
+      "title": "¡Dolor!",
+      "description": "Alguien, o mejor dicho algo, agarra tu pierna y te caés al suelo boca arriba. Lo último que ves es al hombre lobo a punto de comerte.",
+      "actions": []
+    }
+  }
+}

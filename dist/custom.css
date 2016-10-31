@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
+.btn-block {
+  display: block;
+}
+
 .navbar  {
   display: block;
   width: 100%;
@@ -49,9 +53,32 @@
 
 .splash-title {
   padding-top:225px;
+  padding-left: 6px;
 }
 
 .adventure {
+  text-align: center;
   margin-top: 20px;
+}
 
+.adventure-title {
+  text-align: center;
+  color: #
+}
+
+.adventure-event-title {
+  /*font-weight: 800;*/
+  margin-bottom: 0px;
+}
+
+.adventure-event-description {
+  margin-bottom: 30px;
+}
+
+.adventure-link {
+  padding: 16px 0;
+}
+
+.adventure-link-description {
+  padding-top: 4px;
 }
