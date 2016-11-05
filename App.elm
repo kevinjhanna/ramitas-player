@@ -260,7 +260,7 @@ viewEvent maybe =
         ]
       , div [] (List.map viewAction event.actions)
       ]
-    Nothing -> text "Dead end."
+    Nothing -> viewDeadEndError
 
 viewNoConnectionError : Html Msg
 viewNoConnectionError = div
@@ -274,7 +274,25 @@ viewNoConnectionError = div
   , div
     [ class "error-message-description"
     ]
-    [ text "Puede ser que falló la conexión a internet, o la URL de la aventura no es correcta."
+    [ text "Puede ser que falló la conexión a internet,
+            que la URL de la aventura no sea correcta,
+            o que el archivo que define la aventura esté mal formado."
+    ]
+  ]
+
+viewDeadEndError : Html Msg
+viewDeadEndError = div
+  [ class "grid error-message"
+  ]
+  [ div
+    [ class "error-message-title"
+    ]
+    [ text "Dead End"
+    ]
+  , div
+    [ class "error-message-description"
+    ]
+    [ text "La aventura está mal formada. La acción que tomaste desencadena en un evento inexistente."
     ]
   ]
 
