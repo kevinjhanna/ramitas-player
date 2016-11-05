@@ -82,3 +82,14 @@
 .adventure-link-description {
   padding-top: 4px;
 }
+
+.error-message {
+  text-align: center;
+  margin-top: 100px;
+}
+.error-message-title {
+  font-size: 28px;
+}
+
+.error-message-description {
+}

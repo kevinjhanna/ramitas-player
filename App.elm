@@ -9,7 +9,7 @@ import Dict
 import Random
 import Array
 
-type Route = ListingAdventures | PlayingAdventure
+type Route = ListingAdventures | PlayingAdventure | NoConnectionError
 
 type alias AdventureLink =
   { title: String
@@ -98,7 +98,10 @@ update msg model =
         (newModel, Cmd.none)
 
     FetchFail _ ->
-      (model, Cmd.none)
+      let
+        newModel = { model | route = NoConnectionError}
+      in
+        (newModel, Cmd.none)
 
     SelectAdventure adventureLink ->
       (model, getAdventure adventureLink.url)
@@ -151,6 +154,7 @@ view model =
     [ case model.route of
         ListingAdventures -> viewAdventureLinks model.adventureLinks
         PlayingAdventure -> viewAdventure model.selectedAdventure model.currentEvent
+        NoConnectionError -> viewNoConnectionError
     ]
   ]
 
@@ -257,6 +261,22 @@ viewEvent maybe =
       , div [] (List.map viewAction event.actions)
       ]
     Nothing -> text "Dead end."
+
+viewNoConnectionError : Html Msg
+viewNoConnectionError = div
+  [ class "grid error-message"
+  ]
+  [ div
+    [ class "error-message-title"
+    ]
+    [ text "Hubo un problema"
+    ]
+  , div
+    [ class "error-message-description"
+    ]
+    [ text "Puede ser que falló la conexión a internet, o la URL de la aventura no es correcta."
+    ]
+  ]
 
 -- SUBSCRIPTIONS
 subscriptions : Model -> Sub Msg
