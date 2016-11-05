@@ -140,7 +140,7 @@ update msg model =
 
     ListAdventureLinks ->
       let
-        newModel = { model | route = ListingAdventures}
+        newModel = { model | route = ListingAdventures }
       in
         (newModel, Cmd.none)
 
