@@ -86,6 +86,7 @@ type Msg
   | RollAction Action
   | SetEvent (Array.Array String) Int
   | ListAdventureLinks
+  | StartAgain Adventure
 
 
 update : Msg -> Model -> (Model, Cmd Msg)
@@ -142,6 +143,13 @@ update msg model =
         newModel = { model | route = ListingAdventures}
       in
         (newModel, Cmd.none)
+
+    StartAgain adventure ->
+      let
+        newModel = { model | currentEvent = adventure.startingEvent}
+      in
+        (newModel, Cmd.none)
+
 
 
 -- VIEW
@@ -231,7 +239,7 @@ viewAdventure maybeAdventure maybeCurrentEvent =
         ]
         [ text adventure.title
         ]
-      , viewEvent maybeCurrentEvent
+      , viewEvent adventure maybeCurrentEvent
       ]
 
 viewAction : Action -> Html Msg
@@ -244,9 +252,9 @@ viewAction action = div []
     ]
   ]
 
-viewEvent : Maybe Event -> Html Msg
-viewEvent maybe =
-  case maybe of
+viewEvent : Adventure -> Maybe Event -> Html Msg
+viewEvent adventure maybeEvent =
+  case maybeEvent of
     Just event -> div []
       [ h4
         [ class "adventure-event-title"
@@ -258,9 +266,44 @@ viewEvent maybe =
         ]
         [ text event.description
         ]
-      , div [] (List.map viewAction event.actions)
+      , viewActions adventure event.actions
       ]
     Nothing -> viewDeadEndError
+
+viewActions : Adventure -> List Action -> Html Msg
+viewActions adventure actions =
+  if List.isEmpty actions then
+    viewEnd adventure
+  else
+    div
+      [
+      ]
+      (List.map viewAction actions)
+
+viewEnd : Adventure -> Html Msg
+viewEnd adventure = pre
+  [ class "adventure-end"
+  ]
+  [ h4
+    [
+    ]
+    [ text "La aventura ha finalizado."
+    ]
+  , a
+    [ class "btn btn-block"
+    , onClick (StartAgain adventure)
+    ]
+    [ text "Comenzar de nuevo"
+    ]
+  , a
+    [ class "btn btn-block"
+    , onClick ListAdventureLinks
+    ]
+    [ text "Ver listado de aventuras"
+    ]
+  ]
+
+
 
 viewNoConnectionError : Html Msg
 viewNoConnectionError = div
