@@ -21,9 +21,9 @@
       "url": "http://localhost:8000/ramitas.json"
     },
     {
-      "title": "Día de examen",
+      "title": "Día de examen [Ejemplo de dead end]",
       "description": "Hoy rendís el último examen de tu carrera, pero cuando te despertás te olvidaste todo lo que estudiaste...",
-      "url": "http://localhost:8000/ramitas.json"
+      "url": "http://localhost:8000/dead-end.json"
     }
   ]
 }

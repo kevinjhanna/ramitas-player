@@ -1,0 +1,14 @@
+{
+  "title": "Día de examen [Ejemplo de dead end]",
+  "description": "foo",
+  "startingEventId": "start",
+  "events": {
+    "start": {
+      "title": "Primer evento",
+      "description": "Esta aventura está mal creada",
+      "actions": [
+        { "description": "Esta acción lleva a un evento inexistente", "outputs": ["does-not-exist"] }
+      ]
+    }
+  }
+}
