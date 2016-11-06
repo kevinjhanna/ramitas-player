@@ -1,0 +1,97 @@
+{
+  "title": "Manuel Belgrano",
+  "description": "Para escritores",
+  "startingEventId": "backstory-1",
+  "events": {
+    "backstory-1": {
+      "title": "1805",
+      "description": "En el Virreinato del Rio de la Plata se viven ideas de nuevos pensadores. Se siente el espiritu de libertad.",
+      "actions": [
+        { "description": "Continuar", "outputs": ["backstory-2"] }
+      ]
+    },
+    "backstory-2": {
+      "title": "Vos, Manuel",
+      "description": "Sos el secretario del Consulado Comercial en Buenos Aires. Hace años proponés reformas para hacer valer a los habitantes de estás tierras. A todos por igual.",
+      "actions": [
+        { "description": "Continuar", "outputs": ["backstory-3"] }
+      ]
+    },
+    "backstory-3": {
+      "title": "Lunes 4 de Febrero",
+      "description": "¿Cómo arrancás el día?",
+      "actions": [
+        { "description": "Reunirte con los hacendados", "outputs": ["hacendados-1"] },
+        { "description": "Ver las obras en construcción en el puerto", "outputs": ["puerto-1"] }
+      ]
+    },
+    "puerto-1": {
+      "title": "En el puerto",
+      "description": "Se están construyendo las defensas en el puerto que pediste. Un grupo de marineros y soldados realistas están discutiendo en un círculo. Pero se hace tarde para tu reunión con los hacendados...",
+      "actions": [
+        { "description": "Investigar que pasa", "outputs": ["puerto-2"] },
+        { "description": "Ir a la reunión", "outputs": ["hacendados-1"] }
+      ]
+    },
+    "puerto-2": {
+      "title": "Cuando te acercás se dan vuelta",
+      "description": "\"Manuel, este marinero dice haber visto buques británicos en alta mar.\"",
+      "actions": [
+        { "description": "Volver al cabildo e informar", "outputs": ["cabildo-1"] },
+        { "description": "Reunirte con los hacendados", "outputs": ["hacendados-1"] }
+      ]
+    },
+    "cabildo-1": {
+      "title": "En el cabildo",
+      "description": "Dás aviso de la situación en el puerto. \"Serás el encargado de organizar la milicia, Manuel\". Continuará...",
+      "actions": [
+      ]
+    },
+    "hacendados-1": {
+      "title": "Caminando",
+      "description": "No querés llegar tarde a la reunión con los hacendados. Ya sabés lo que van a decir, y vos compartís su reclamo. Quieren vender sus productos libremente, no solo al monopolio de Cadiz.",
+      "actions": [
+        { "description": "Seguir caminando", "outputs": ["hacendados-2"] }
+      ]
+    },
+    "hacendados-2": {
+      "title": "Llegás a la esquina",
+      "description": "Un grupo de hombres está colocando adoquines en las calles de tierra. No podés tomar el camino directo.",
+      "actions": [
+        { "description": "Ir por otra calle", "outputs": ["matones-1"] }
+      ]
+    },
+    "matones-1": {
+      "title": "En la otra calle...",
+      "description": "Dos hombres corpulentos se aproximan. No llegás a escuchar lo que dicen entre ellos, pero por sus expresiones entendés que no se viene nada bueno.",
+      "actions": [
+        { "description": "Ir al encuentro", "outputs": ["matones-2"] }
+      ]
+    },
+    "matones-2": {
+      "title": "Encuentro",
+      "description": "Uno de ellos es sorprendentemente rápido, te pasa y te agarra por detrás. El otro te da una trompada en el estomago. Perdés el aire.",
+      "actions": [
+        { "description": "Respirar", "outputs": ["matones-3"] }
+      ]
+    },
+    "matones-3": {
+      "title": "Respirar",
+      "description": "Nunca disfrutaste tanto de respirar. \"Ramirez hos manda saludos\" - dice el matón. \"Debes frenar tu estúpido plan de libre comercio. El monpolio con España le ha dado de comer a estas tierras.\"",
+      "actions": [
+        { "description": "\"Solo a unos pocos\"", "outputs": ["matones-4"] },
+        { "description": "No responder", "outputs": ["matones-5"] }
+      ]
+    },
+    "matones-4": {
+      "title": "Caída",
+      "description": "Otro golpe, esta vez al pecho. El rufian que te sostenía por detrás te deja caer y perdés la conciencia. Continuará...",
+      "actions": []
+    },
+    "matones-5": {
+      "title": "Se van...",
+      "description": "El matón que te sostenía por detrás te libera, y los matones se van. Continuará...",
+      "actions": []
+    }
+  }
+}

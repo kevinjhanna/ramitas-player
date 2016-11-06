@@ -1,24 +1,19 @@
 {
   "adventures": [
     {
-      "title": "Juntar ramitas secas",
-      "description": "Juntá las ramitas necesarias ¿Podrás hacer el asado?",
-      "url": "http://localhost:8000/ramitas.json"
-    },
-    {
-      "title": "Ejemplo",
-      "description": "Una simple avnetura de ejemplo",
-      "url": "http://localhost:8000/basic.json"
-    },
-    {
       "title": "Belgrano",
       "description": "Tus primeros días de vuelta en Buenos Aires como Manuel Belgrano.",
+      "url": "http://localhost:8000/belgrano.json"
+    },
+    {
+      "title": "Juntar ramitas secas",
+      "description": "La primera aventura ¿Podrás hacer el asado?",
       "url": "http://localhost:8000/ramitas.json"
     },
     {
-      "title": "El Anillo Único",
-      "description": "Encontrás un anillo que te hace desaparecer cuando te lo ponés. Es de noche y golpean la puerta de tu casa...",
-      "url": "http://localhost:8000/ramitas.json"
+      "title": "Ejemplo básico",
+      "description": "Una simple aventura de ejemplo para usar de template.",
+      "url": "http://localhost:8000/basic.json"
     },
     {
       "title": "Día de examen [Ejemplo de dead end]",
