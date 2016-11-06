@@ -44,7 +44,7 @@
 }
 
 .splash-image {
-  background: url(/assets/mountains.jpeg);
+  background: url("./mountains.jpeg");
   background-size: cover;
   background-position: center;
   height: 300px;
