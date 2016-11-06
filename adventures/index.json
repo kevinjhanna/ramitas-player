@@ -3,22 +3,22 @@
     {
       "title": "Belgrano",
       "description": "Tus primeros días de vuelta en Buenos Aires como Manuel Belgrano.",
-      "url": "http://localhost:8000/belgrano.json"
+      "url": "./adventures/belgrano.json"
     },
     {
       "title": "Juntar ramitas secas",
       "description": "La primera aventura ¿Podrás hacer el asado?",
-      "url": "http://localhost:8000/ramitas.json"
+      "url": "./adventures/ramitas.json"
     },
     {
       "title": "Ejemplo básico",
       "description": "Una simple aventura de ejemplo para usar de template.",
-      "url": "http://localhost:8000/basic.json"
+      "url": "./adventures/basic.json"
     },
     {
       "title": "Día de examen [Ejemplo de dead end]",
       "description": "Hoy rendís el último examen de tu carrera, pero cuando te despertás te olvidaste todo lo que estudiaste...",
-      "url": "http://localhost:8000/dead-end.json"
+      "url": "./adventures/dead-end.json"
     }
   ]
 }

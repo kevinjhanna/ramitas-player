@@ -350,7 +350,7 @@ getAdventureLinks : Cmd Msg
 getAdventureLinks =
   let
     url =
-      "http://localhost:8000/adventures.json"
+      "./adventures/index.json"
   in
     Task.perform FetchFail FetchAdventureLinksSucceed (Http.get decodeAdventureLinks url)
 
