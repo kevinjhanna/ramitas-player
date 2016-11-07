@@ -9153,17 +9153,6 @@ var _user$project$Main$viewNoConnectionError = A2(
 					_elm_lang$html$Html$text('Puede ser que falló la conexión a internet,\n            que la URL de la aventura no sea correcta,\n            o que el archivo que define la aventura esté mal formado.')
 				]))
 		]));
-var _user$project$Main$emptyEvent = {
-	title: 'Empty event',
-	actions: _elm_lang$core$Native_List.fromArray(
-		[]),
-	description: ''
-};
-var _user$project$Main$emptyAdventure = {
-	title: '',
-	events: _elm_lang$core$Dict$empty,
-	startingEvent: _elm_lang$core$Maybe$Just(_user$project$Main$emptyEvent)
-};
 var _user$project$Main$AdventureLink = F3(
 	function (a, b, c) {
 		return {title: a, description: b, url: c};
@@ -9481,7 +9470,7 @@ var _user$project$Main$update = F2(
 					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 				} else {
 					var maybeEventId = A2(_elm_lang$core$Array$get, _p4._1, _p4._0);
-					var eventId = A2(_elm_lang$core$Maybe$withDefault, '1', maybeEventId);
+					var eventId = A2(_elm_lang$core$Maybe$withDefault, 'default', maybeEventId);
 					var maybeEvent = A2(_elm_lang$core$Dict$get, eventId, _p6._0.events);
 					var newModel = _elm_lang$core$Native_Utils.update(
 						model,
