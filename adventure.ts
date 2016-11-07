@@ -1,4 +1,4 @@
-type EventId = string;
+declare type EventId = string;
 
 declare interface Adventure {
   title: string;
