@@ -34,19 +34,6 @@ type alias Event =
   , actions: List Action
   }
 
-emptyEvent : Event
-emptyEvent =
-  { title = "Empty event"
-  , actions = []
-  , description = ""
-  }
-
-emptyAdventure : Adventure
-emptyAdventure =
-  { title = ""
-  , events = Dict.empty
-  , startingEvent = Just emptyEvent
-  }
 
 main =
   App.program
@@ -123,7 +110,7 @@ update msg model =
         Just adventure ->
           let
             maybeEventId = Array.get randomIndex eventIds
-            eventId = Maybe.withDefault "1" maybeEventId
+            eventId = Maybe.withDefault "default" maybeEventId
             maybeEvent = Dict.get eventId adventure.events
             newModel = { model | currentEvent = maybeEvent }
           in
